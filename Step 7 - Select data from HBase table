@@ -1,0 +1,1 @@
+hbase(main):002:0> get 'sales_order','1'
