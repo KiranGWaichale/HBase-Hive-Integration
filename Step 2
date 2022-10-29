@@ -1,0 +1,31 @@
+hive> CREATE EXTERNAL TABLE IF not exists hbase_sales_order
+    > (
+    > key string,
+    > ORDERNUMBER int,
+    > QUANTITYORDERED int,
+    > PRICEEACH float,
+    > ORDERLINENUMBER int,
+    > SALES float,
+    > STATUS string,
+    > QTR_ID int,
+    > MONTH_ID int,
+    > YEAR_ID int,
+    > PRODUCTLINE string,
+    > MSRP int,
+    > PRODUCTCODE string,
+    > PHONE string,
+    > CITY string,
+    > STATE string,
+    > POSTALCODE string,
+    > COUNTRY string,
+    > TERRITORY string,
+    > CONTACTLASTNAME string,
+    > CONTACTFIRSTNAME string,
+    > DEALSIZE string
+    > )
+    > ROW FORMAT DELIMITED
+    > FIELDS TERMINATED BY ','
+    > STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
+    > WITH SERDEPROPERTIES
+    > ("hbase.columns.mapping"=":key,details:ORDERNUMBER,details:QUANTITYORDERED,details:PRICEEACH,details:ORDERLINENUMBER,details:SALES,details:STATUS,details:QTR_ID,details:MONTH_ID,details:YEAR_ID,details:PRODUCTLINE,details:MSRP,details:PRODUCTCODE,address:PHONE,address:CITY,address:STATE,address:POSTALCODE,address:COUNTRY,address:TERRITORY,address:CONTACTLASTNAME,address:CONTACTFIRSTNAME,details:DEALSIZE")
+    > TBLPROPERTIES("hbase.table.name"="sales_order");
