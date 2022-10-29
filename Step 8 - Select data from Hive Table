@@ -1,0 +1,1 @@
+hive> select * from hbase_sales_order limit 1;
