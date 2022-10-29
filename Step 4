@@ -1,0 +1,1 @@
+hive> load data local inpath 'file:///tmp/hive_class/sales_order_data.csv' into table hbase_stg_sales_order;
